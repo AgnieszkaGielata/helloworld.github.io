@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org en">
+<head>
+    <meta charset="text/html; UTF-8">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Home</title>
+</head>
+<body>
+<h1>Wykaz osób</h1>
+<div class="content">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <table class="display table table-bordered" style="width:800px">
+                        <thead class="text-center">
+                        <tr>
+                            <th class="text-right">Id</th>
+                            <th class="text-left">Imię</th>
+                            <th class="text-left">Nazwisko</th>
+                            <th class="text-left">Wiek</th>
+                            <th class="text-left">Login</th>
+                            <th class="text-left">Hasło</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="person : ${personList}">
+                            <td class="text-right"th:text= "${person.getId()}"></td>
+                            <td class="text-left"th:text= "${person.getName()}"></td>
+                            <td class="text-left" th:text= "${person.getSurname()}"></td>
+                            <td class="text-center" th:text= "${person.getAge()}"></td>
+                            <td class="text-left" th:text= "${person.getLogin()}"></td>
+                            <td class="text-left" th:text= "${person.getPassword()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p th:text="${serverTime}"></p>
+
+</body>
+</html>
